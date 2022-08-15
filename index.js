@@ -23,12 +23,11 @@ const updateClient = (index, client) => {
 }
 
 const deleteClient = (index) => {
-
     const dbClient = readClient()
     dbClient.splice(index, 1)
     setLocalStorage(dbClient)
-
 }
+
 const readClient = () => getLocalStorage()
 
 const createClient = (client) => {
