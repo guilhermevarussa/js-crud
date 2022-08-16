@@ -52,6 +52,7 @@ const saveClient = () => {
             cell: document.getElementById('cell').nodeValue,
             city: document.getElementById('city').nodeValue,
         }
+        createClient(client)
         console.log('Cliente cadastrado')
     } else {
         throw new Error("formulário invalido")
