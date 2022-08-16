@@ -30,11 +30,34 @@ const deleteClient = (index) => {
 
 const readClient = () => getLocalStorage()
 
+
+
 const createClient = (client) => {
     const dbClient = getLocalStorage()
     dbClient.push(client)
     setLocalStorage(dbClient)
 }
+
+//!layout references
+
+const isValidField = () => {
+    return document.getElementById('client-form').reportValidity()
+}
+
+const saveClient = () => {
+    if (isValidField()) {
+        const client = {
+            name: document.getElementById('name').nodeValue,
+            email: document.getElementById('email').nodeValue,
+            cell: document.getElementById('cell').nodeValue,
+            city: document.getElementById('city').nodeValue,
+        }
+        console.log('Cliente cadastrado')
+    } else {
+        throw new Error("formulário invalido")
+    }
+}
+
 
 //*Events
 
@@ -43,3 +66,5 @@ document.getElementById('cadastrarCliente')
 
 document.getElementById('modalClose')
     .addEventListener('click', closeModal)
+document.getElementById('salvar')
+    .addEventListener('click', saveClient)
