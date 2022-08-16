@@ -56,9 +56,27 @@ const saveClient = () => {
         }
         createClient(client)
         closeModal()
-    } else {
-        throw new Error("formulário invalido")
     }
+}
+
+const creatRow = (client) => {
+    const newRow = document.createElement('tr')
+    newRow.innerHTML = `
+        <td>${client.name}</td>
+        <td>${client.email}</td>
+        <td>${client.cell}</td>
+        <td>${client.city}</td>
+        <td>
+            <button type="button" class="button green">editar</button>
+            <button type="button" class="button red">excluir</button>
+        </td>  `
+
+    document.querySelector(`#tb-client>tbody`).appendChild(newRow)
+}
+
+const updateTable = () => {
+    const dbClient = readClient()
+    dbClient.forEach(creatRow)
 }
 
 //*Events
