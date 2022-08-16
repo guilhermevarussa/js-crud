@@ -44,6 +44,11 @@ const isValidField = () => {
     return document.getElementById('client-form').reportValidity()
 }
 
+const clearFields = () => {
+    const fields = document.querySelectorAll('.modal-field')
+    fields.forEach(field => field.value = "")
+}
+
 const saveClient = () => {
     if (isValidField()) {
         const client = {
@@ -53,7 +58,8 @@ const saveClient = () => {
             city: document.getElementById('city').nodeValue,
         }
         createClient(client)
-        console.log('Cliente cadastrado')
+        clearFields()
+        closeModal()
     } else {
         throw new Error("formulário invalido")
     }
