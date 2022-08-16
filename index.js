@@ -2,15 +2,12 @@
 const openModal = () => document.getElementById('modal')
     .classList.add('active')
 
-const closeModal = () => document.getElementById('modal')
-    .classList.remove('active')
-
-const tempClient = {
-    name: "guitest",
-    email: "test2",
-    phoneNumber: "test2",
-    city: "test2"
+const closeModal = () => {
+    clearFields()
+    document.getElementById('modal')
+        .classList.remove('active')
 }
+
 
 const getLocalStorage = () => JSON.parse(localStorage.getItem('db_client')) ?? []
 
@@ -58,13 +55,11 @@ const saveClient = () => {
             city: document.getElementById('city').nodeValue,
         }
         createClient(client)
-        clearFields()
         closeModal()
     } else {
         throw new Error("formulário invalido")
     }
 }
-
 
 //*Events
 
