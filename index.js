@@ -76,8 +76,17 @@ const creatRow = (client) => {
 
 const updateTable = () => {
     const dbClient = readClient()
+    clearTable()
     dbClient.forEach(creatRow)
 }
+
+const clearTable = () => {
+    const rows = document.querySelectorAll('#tableClient>tbody tr')
+    rows.forEach(row => row.parentNode.removeChild(row))
+    
+}
+
+updateTable()
 
 //*Events
 
