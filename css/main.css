@@ -9,6 +9,7 @@
     --secundary-color: #FFF1CC;
     --shadow-color: #CCC;
     --text-color: #FFF;
+    --shadow-color: #CCC;
 }
 
 body {
@@ -55,7 +56,7 @@ footer {
     margin: 2vh auto;
 }
 
-.img{
+.img {
     margin: 0;
     padding: 0;
     float: right;

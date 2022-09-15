@@ -28,7 +28,6 @@ const deleteClient = (index) => {
 const readClient = () => getLocalStorage()
 
 
-
 const createClient = (client) => {
     const dbClient = getLocalStorage()
     dbClient.push(client)
@@ -83,7 +82,7 @@ const updateTable = () => {
 const clearTable = () => {
     const rows = document.querySelectorAll('#tableClient>tbody tr')
     rows.forEach(row => row.parentNode.removeChild(row))
-    
+
 }
 
 updateTable()
